@@ -16,7 +16,7 @@ jobs:
   build-on-windows:
     name: Build on Windows
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
     - name: Run build script
       id: build-script
