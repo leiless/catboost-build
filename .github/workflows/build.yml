@@ -23,5 +23,17 @@ jobs:
       run: |
         git clone --depth 1 --branch v1.2.2 https://github.com/catboost/catboost.git
         cd catboost
+
         set VSCMD_DEBUG=2
-        python build/build_native.py --build-root-dir=./build_no_cuda --targets catboost
+
+        # Import the required module
+        Import-Module -Name Microsoft.Build.Utilities.Core
+
+        # Get the Microsoft Visual C++ Toolset version
+        $msvc_toolset_ver = Get-VCBuildVersion | Select-Object -ExpandProperty ToolsetVersion
+
+        # Print the toolset version
+        Write-Output "The Microsoft Visual C++ Toolset version is: $msvc_toolset_ver"
+
+        # --msvc_toolset 14.28.29333
+        python build/build_native.py --build-root-dir=./build_no_cuda --targets catboost --msvs_version 2022
