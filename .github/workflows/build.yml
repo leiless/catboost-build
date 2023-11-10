@@ -24,4 +24,4 @@ jobs:
         git clone --depth 1 --branch v1.2.2 https://github.com/catboost/catboost.git
         cd catboost
         set VSCMD_DEBUG=2
-        python build/build_native.py --build-root-dir=./build_no_cuda --targets catboost --msvs_version 2019 --msvc_toolset 14.29.30139
+        python build/build_native.py --msvs_version 2019 --msvc_toolset 14.29.30139 --build-root-dir=./build_no_cuda --targets catboost
